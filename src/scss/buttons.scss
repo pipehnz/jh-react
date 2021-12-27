@@ -1,0 +1,24 @@
+@import './variables/colors';
+
+%btn {
+  height: 32px;
+  width: 252px;
+  border-radius: 5px;
+}
+
+.btn-link {
+  @extend %btn;
+  align-items: center;
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
+  color: $earls-green;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-submit {
+  @extend %btn;
+  background-color: $earls-green;
+  color: $white;
+}
