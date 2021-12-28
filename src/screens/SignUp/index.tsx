@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { useForm } from 'react-hook-form';
 
 import FormCard from '../../components/FormCard';
@@ -21,61 +22,62 @@ function SignUp() {
       <div className="content-form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
-            {...register('firstName', { required: 'Campo requerido' })}
-            label="Nombre"
+            {...register('firstName', { required: i18next.t('Validations:required') as string })}
+            label={i18next.t('SignUp:firstName')}
             type="text"
             error={errors.firstName?.message}
           />
 
           <Input
-            {...register('lastName', { required: 'Campo requerido' })}
-            label="Apellido"
+            {...register('lastName', { required: i18next.t('Validations:required') as string })}
+            label={i18next.t('SignUp:lastName')}
             type="text"
             error={errors.lastName?.message}
           />
           <Input
             {...register('email', {
-              required: 'Campo requerido',
+              required: i18next.t('Validations:required') as string,
               pattern: {
                 value: regexEmail,
-                message: 'El valor introducido no coincide con el formato del correo electrónico'
+                message: i18next.t('Validations:email') as string
               }
             })}
-            label="Email"
+            label={i18next.t('SignUp:email')}
             type="email"
             error={errors.email?.message}
           />
           <Input
             {...register('password', {
-              required: 'Campo requerido',
+              required: i18next.t('Validations:required') as string,
               pattern: {
                 value: regexPassword,
-                message: 'La contraseña debe de tener mínimo 8 carácteres, al menos una letra y un número'
+                message: i18next.t('Validations:password') as string
               }
             })}
-            label="Password"
+            label={i18next.t('SignUp:password')}
             type="password"
             error={errors.password?.message}
           />
           <Input
             {...register('passwordConfirmation', {
-              required: 'Campo requerido',
+              required: i18next.t('Validations:required') as string,
               validate: {
-                match: v => v === getValues().password || 'Las contraseñas no coinciden'
+                match: v =>
+                  v === getValues().password || (i18next.t('Validations:passwordConfirmation') as string)
               }
             })}
-            label="Confirmación de Password"
+            label={i18next.t('SignUp:passwordConfirmation')}
             type="password"
             error={errors.passwordConfirmation?.message}
           />
 
           <button className="btn-submit" type="submit">
-            Sign Up
+            {i18next.t('Buttons:signUp')}
           </button>
         </form>
       </div>
       <a className="btn-link" href=".">
-        Login
+        {i18next.t('Buttons:login')}
       </a>
     </FormCard>
   );
