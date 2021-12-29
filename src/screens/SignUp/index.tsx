@@ -1,7 +1,8 @@
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import FormCard from '../../components/FormCard';
+import Input from '../../components/Input';
 import { User } from '../../utils/types';
 
 function SignUp() {
@@ -12,81 +13,60 @@ function SignUp() {
     formState: { errors }
   } = useForm<User>();
   // eslint-disable-next-line no-console
-  const onSubmit: SubmitHandler<User> = () => console.log(getValues());
+  const onSubmit = (data: User) => console.log(data);
 
   return (
     <FormCard>
       <div className="content-form">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label className="form-label">Nombre</label>
-          <div className="input-content">
-            <input
-              className="form-input"
-              name="firstName"
-              type="text"
-              ref={register({ required: 'Field required' })}
-            />
-            {errors.firstName && <small className="form-alert">{errors.firstName.message}</small>}
-          </div>
+          <Input
+            {...register('firstName', { required: 'Campo requerido' })}
+            label="Nombre"
+            type="text"
+            error={errors.firstName?.message}
+          />
 
-          <label className="form-label">Apellido</label>
-          <div className="input-content">
-            <input
-              className="form-input"
-              name="lastName"
-              type="text"
-              ref={register({ required: 'Field required' })}
-            />
-            {errors.lastName && <small className="form-alert">{errors.lastName.message}</small>}
-          </div>
-
-          <label className="form-label">Email</label>
-          <div className="input-content">
-            <input
-              className="form-input"
-              name="email"
-              type="email"
-              ref={register({
-                required: 'Field required',
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: 'Entered value does not match email format'
-                }
-              })}
-            />
-            {errors.email && <small className="form-alert">{errors.email.message}</small>}
-          </div>
-
-          <label className="form-label">Password</label>
-          <div className="input-content">
-            <input
-              className="form-input"
-              name="password"
-              type="password"
-              ref={register({
-                required: 'Field required'
-              })}
-            />
-            {errors.password && <small className="form-alert">{errors.password.message}</small>}
-          </div>
-
-          <label className="form-label">Confirmación de Password</label>
-          <div className="input-content">
-            <input
-              className="form-input"
-              name="passwordConfirmation"
-              type="password"
-              ref={register({
-                required: 'Field required',
-                validate: {
-                  match: v => v === getValues().password || 'Passwords do not match'
-                }
-              })}
-            />
-            {errors.passwordConfirmation && (
-              <small className="form-alert">{errors.passwordConfirmation.message}</small>
-            )}
-          </div>
+          <Input
+            {...register('lastName', { required: 'Campo requerido' })}
+            label="Apellido"
+            type="text"
+            error={errors.lastName?.message}
+          />
+          <Input
+            {...register('email', {
+              required: 'Campo requerido',
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: 'El valor introducido no coincide con el formato del correo electrónico'
+              }
+            })}
+            label="Email"
+            type="email"
+            error={errors.email?.message}
+          />
+          <Input
+            {...register('password', {
+              required: 'Campo requerido',
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                message: 'La contraseña debe de tener mínimo 8 carácteres, al menos una letra y un número'
+              }
+            })}
+            label="Password"
+            type="password"
+            error={errors.password?.message}
+          />
+          <Input
+            {...register('passwordConfirmation', {
+              required: 'Campo requerido',
+              validate: {
+                match: v => v === getValues().password || 'Las contraseñas no coinciden'
+              }
+            })}
+            label="Confirmación de Password"
+            type="password"
+            error={errors.passwordConfirmation?.message}
+          />
 
           <button className="btn-submit" type="submit">
             Sign Up
