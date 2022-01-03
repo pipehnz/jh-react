@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import FormCard from '../../components/FormCard';
 import Input from '../../components/Input';
 import { User } from '../../utils/types';
+import { regexEmail, regexPassword } from '../../constants/regex';
 
 function SignUp() {
   const {
@@ -36,7 +37,7 @@ function SignUp() {
             {...register('email', {
               required: 'Campo requerido',
               pattern: {
-                value: /\S+@\S+\.\S+/,
+                value: regexEmail,
                 message: 'El valor introducido no coincide con el formato del correo electrónico'
               }
             })}
@@ -48,7 +49,7 @@ function SignUp() {
             {...register('password', {
               required: 'Campo requerido',
               pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                value: regexPassword,
                 message: 'La contraseña debe de tener mínimo 8 carácteres, al menos una letra y un número'
               }
             })}
