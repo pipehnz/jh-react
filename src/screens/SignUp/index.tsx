@@ -1,6 +1,6 @@
 import React from 'react';
-import i18next from 'i18next';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import FormCard from '../../components/FormCard';
 import Input from '../../components/Input';
@@ -17,67 +17,68 @@ function SignUp() {
   // eslint-disable-next-line no-console
   const onSubmit = (data: User) => console.log(data);
 
+  const { t } = useTranslation();
+
   return (
     <FormCard>
       <div className="content-form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
-            {...register('firstName', { required: i18next.t('Validations:required') as string })}
-            label={i18next.t('SignUp:firstName')}
+            {...register('firstName', { required: t('validations.required') as string })}
+            label={t('signUp.firstName')}
             type="text"
             error={errors.firstName?.message}
           />
 
           <Input
-            {...register('lastName', { required: i18next.t('Validations:required') as string })}
-            label={i18next.t('SignUp:lastName')}
+            {...register('lastName', { required: t('validations.required') as string })}
+            label={t('signUp.lastName')}
             type="text"
             error={errors.lastName?.message}
           />
           <Input
             {...register('email', {
-              required: i18next.t('Validations:required') as string,
+              required: t('validations.required') as string,
               pattern: {
                 value: regexEmail,
-                message: i18next.t('Validations:email') as string
+                message: t('validations.email') as string
               }
             })}
-            label={i18next.t('SignUp:email')}
+            label={t('signUp.email')}
             type="email"
             error={errors.email?.message}
           />
           <Input
             {...register('password', {
-              required: i18next.t('Validations:required') as string,
+              required: t('validations.required') as string,
               pattern: {
                 value: regexPassword,
-                message: i18next.t('Validations:password') as string
+                message: t('validations.password') as string
               }
             })}
-            label={i18next.t('SignUp:password')}
+            label={t('signUp.password')}
             type="password"
             error={errors.password?.message}
           />
           <Input
             {...register('passwordConfirmation', {
-              required: i18next.t('Validations:required') as string,
+              required: t('validations.required') as string,
               validate: {
-                match: v =>
-                  v === getValues().password || (i18next.t('Validations:passwordConfirmation') as string)
+                match: v => v === getValues().password || (t('validations.passwordConfirmation') as string)
               }
             })}
-            label={i18next.t('SignUp:passwordConfirmation')}
+            label={t('signUp.passwordConfirmation')}
             type="password"
             error={errors.passwordConfirmation?.message}
           />
 
           <button className="btn-submit" type="submit">
-            {i18next.t('Buttons:signUp')}
+            {t('buttons.signUp')}
           </button>
         </form>
       </div>
       <a className="btn-link" href=".">
-        {i18next.t('Buttons:login')}
+        {t('buttons.login')}
       </a>
     </FormCard>
   );
