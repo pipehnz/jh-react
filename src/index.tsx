@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 
 import App from 'components/App';
-import 'config/i18n';
+import './config/i18n';
 import 'scss/application.scss';
 
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +10,9 @@ import reportWebVitals from './reportWebVitals';
 const renderApp = () => {
   render(
     <React.StrictMode>
-      <App />
+      <Suspense fallback="loading">
+        <App />
+      </Suspense>
     </React.StrictMode>,
     document.getElementById('root')
   );
