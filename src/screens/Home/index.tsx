@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SignUp from '../SignUp';
-import Navbar from './../../components/Navbar';
+import Navbar from '../../components/Navbar';
 
 import styles from './styles.module.scss';
 

@@ -64,7 +64,7 @@ function SignUp() {
             {...register('passwordConfirmation', {
               required: t('validations.required') as string,
               validate: {
-                match: v => v === getValues().password || (t('validations.passwordConfirmation') as string)
+                match: v => v === getValues().password || (t('validations.matchPassword') as string)
               }
             })}
             label={t('signUp.passwordConfirmation')}
