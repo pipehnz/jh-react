@@ -11,10 +11,10 @@ function Navbar() {
 
   return (
     <div className={styles.container}>
-      <button type="button" className="btn-lng" onClick={() => handleClick('en')}>
+      <button type="button" className="btn-lang" onClick={() => handleClick('en')}>
         EN
       </button>
-      <button type="button" className="btn-lng-es" onClick={() => handleClick('es')}>
+      <button type="button" className="btn-lang-es" onClick={() => handleClick('es')}>
         ES
       </button>
     </div>
