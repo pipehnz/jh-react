@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import styles from './styles.module.scss';
 
-function FormCard(props: any) {
+interface FormCardProps {
+  children: ReactNode;
+}
+
+function FormCard({ children }: FormCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.appLogo} />
-      {props.children}
+      {children}
     </div>
   );
 }
