@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import FormCard from '../../components/FormCard';
 import Input from '../../components/Input';
 import { User } from '../../utils/types';
-import { regexEmail, regexPassword } from '../../constants/regex';
+import { regexEmail, regexPassword } from '../../constants/forms';
 
 function SignUp() {
   const {
