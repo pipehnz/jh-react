@@ -24,61 +24,61 @@ function SignUp() {
       <div className="content-form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
-            {...register('firstName', { required: t('validations.required') as string })}
-            label={t('signUp.firstName')}
+            {...register('firstName', { required: t('Validations:required') })}
+            label={t('SignUp:firstName')}
             type="text"
             error={errors.firstName?.message}
           />
 
           <Input
-            {...register('lastName', { required: t('validations.required') as string })}
-            label={t('signUp.lastName')}
+            {...register('lastName', { required: t('Validations:required') })}
+            label={t('SignUp:lastName')}
             type="text"
             error={errors.lastName?.message}
           />
           <Input
             {...register('email', {
-              required: t('validations.required') as string,
+              required: t('Validations:required'),
               pattern: {
                 value: regexEmail,
-                message: t('validations.email') as string
+                message: t('Validations:email')
               }
             })}
-            label={t('signUp.email')}
+            label={t('SignUp:email')}
             type="email"
             error={errors.email?.message}
           />
           <Input
             {...register('password', {
-              required: t('validations.required') as string,
+              required: t('Validations:required'),
               pattern: {
                 value: regexPassword,
-                message: t('validations.password') as string
+                message: t('Validations:password')
               }
             })}
-            label={t('signUp.password')}
+            label={t('SignUp:password')}
             type="password"
             error={errors.password?.message}
           />
           <Input
             {...register('passwordConfirmation', {
-              required: t('validations.required') as string,
+              required: t('Validations:required'),
               validate: {
-                match: v => v === getValues().password || (t('validations.matchPassword') as string)
+                match: v => v === getValues().password || t('Validations:matchPassword')
               }
             })}
-            label={t('signUp.passwordConfirmation')}
+            label={t('SignUp:passwordConfirmation')}
             type="password"
             error={errors.passwordConfirmation?.message}
           />
 
           <button className="btn-submit" type="submit">
-            {t('buttons.signUp')}
+            {t('Buttons:signUp')}
           </button>
         </form>
       </div>
       <a className="btn-link" href=".">
-        {t('buttons.login')}
+        {t('Buttons:login')}
       </a>
     </FormCard>
   );

@@ -1,21 +1,22 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 const languages = ['es', 'en'];
 
 i18n
-  .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'es',
     debug: true,
-    whitelist: languages,
-    interpolation: {
-      escapeValue: false
-    }
+    whitelist: languages
   });
+
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext);
+}
+
+requireAll(require.context('..', true, /i18n\.(js|ts)$/));
 
 export default i18n;
