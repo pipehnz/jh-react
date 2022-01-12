@@ -8,14 +8,14 @@ function Navbar() {
   const [isActiveEs, setActiveEs] = useState(true);
   const [isActiveEn, setActiveEn] = useState(false);
 
-  const toggleClass = () => {
+  const toggleLanguage = () => {
     setActiveEs(!isActiveEs);
     setActiveEn(!isActiveEn);
   };
 
   function handleClick(lng: string) {
     i18n.changeLanguage(lng);
-    toggleClass();
+    toggleLanguage();
   }
 
   return (
