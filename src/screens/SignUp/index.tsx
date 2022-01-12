@@ -25,7 +25,7 @@ function SignUp() {
       console.log('res', res);
     },
     onError: () => {
-      setErrorMsg(t('errorRequest.network'));
+      setErrorMsg(t('ErrorRequest:network'));
     }
   });
   const onSubmit = () => {

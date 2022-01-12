@@ -23,3 +23,11 @@ i18next.addResources('en', 'Buttons', {
   signUp: 'Sign Up',
   login: 'Login'
 });
+
+i18next.addResources('es', 'ErrorRequest', {
+  network: 'Se ha presentado un problema al ejecutar la solicitud'
+});
+
+i18next.addResources('en', 'ErrorRequest', {
+  network: 'A problem occurred while executing the request'
+});
