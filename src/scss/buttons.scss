@@ -26,11 +26,9 @@
 .btn-lang {
   border: 2px solid $earls-green;
   padding: 5px 3px;
-}
 
-.btn-lang-es {
-  background-color: $earls-green;
-  border: 2px solid $earls-green;
-  color: $white;
-  padding: 5px 3px;
+  &-active {
+    background-color: $earls-green;
+    color: $white;
+  }
 }
