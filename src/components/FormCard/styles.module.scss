@@ -1,0 +1,29 @@
+@import '../../scss/variables/colors';
+
+.app-logo {
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background-image: url(./assets/LogoWolox.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    height: inherit;
+    position: absolute;
+    width: 212px;
+  }
+}
+
+.card {
+  background-color: $wild-sand;
+  border-top: 8px solid $cerulean;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 28px 24px 24px;
+  width: 100%;
+}

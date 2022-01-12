@@ -1,0 +1,17 @@
+@import "./variables/colors";
+
+.content-form {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  position: relative;
+
+  &::after {
+    background-color: $silver-chalice;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
