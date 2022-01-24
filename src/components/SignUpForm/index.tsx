@@ -28,6 +28,7 @@ function SignUpForm({ onSubmit }: Props) {
         label={t('SignUp:firstName')}
         type="text"
         error={errors.firstName?.message}
+        idField="firstName"
       />
 
       <Input
@@ -35,6 +36,7 @@ function SignUpForm({ onSubmit }: Props) {
         label={t('SignUp:lastName')}
         type="text"
         error={errors.lastName?.message}
+        idField="lastName"
       />
       <Input
         {...register('email', {
@@ -47,6 +49,7 @@ function SignUpForm({ onSubmit }: Props) {
         label={t('SignUp:email')}
         type="email"
         error={errors.email?.message}
+        idField="email"
       />
       <Input
         {...register('password', {
@@ -59,6 +62,7 @@ function SignUpForm({ onSubmit }: Props) {
         label={t('SignUp:password')}
         type="password"
         error={errors.password?.message}
+        idField="password"
       />
       <Input
         {...register('passwordConfirmation', {
@@ -70,6 +74,7 @@ function SignUpForm({ onSubmit }: Props) {
         label={t('SignUp:passwordConfirmation')}
         type="password"
         error={errors.passwordConfirmation?.message}
+        idField="passwordConfirmation"
       />
 
       <button className="btn-submit" type="submit">
