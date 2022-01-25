@@ -8,3 +8,8 @@ export type User = {
   passwordConfirmation: string;
   locale?: string;
 };
+
+export type Credential = {
+  email: string;
+  password: string;
+};
