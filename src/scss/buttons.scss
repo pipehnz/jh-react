@@ -32,3 +32,15 @@
     color: $white;
   }
 }
+
+.btn-logout {
+  border-radius: 5px;
+  color: $black;
+  font-size: 18px;
+  height: 50px;
+  padding: 10px 15px;
+
+  &:hover {
+    background-color: $wild-sand;
+  }
+}

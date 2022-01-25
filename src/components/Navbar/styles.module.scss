@@ -1,0 +1,13 @@
+@import '../../scss/variables/colors';
+
+.navbar {
+  align-items: center;
+  background-color: $white;
+  border-top: 6px solid $cerulean;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-around;
+  max-height: 70px;
+}
