@@ -5,6 +5,7 @@ import { useMutation } from 'react-query';
 import FormCard from 'components/FormCard';
 import SignUpForm from 'components/SignUpForm';
 import Loading from 'components/Spinner/components/loading';
+import ToggleLanguage from 'components/ToggleLanguage';
 import Wrapper from 'components/Wrapper';
 import { signUp } from 'services/UsersService';
 import { User } from 'utils/types';
@@ -26,21 +27,24 @@ function SignUp() {
   };
 
   return (
-    <FormCard>
+    <>
+      <ToggleLanguage />
       <Wrapper>
-        <SignUpForm onSubmit={onSubmit} />
-      </Wrapper>
-      <a className="btn-link" href=".">
-        {t('Buttons:login')}
-      </a>
+        <FormCard>
+          <SignUpForm onSubmit={onSubmit} />
+          <a className="btn-link" href=".">
+            {t('Buttons:login')}
+          </a>
 
-      {isError && <span className="form-alert">{errorMsg}</span>}
-      {isLoading && (
-        <div className="row full-width center">
-          <Loading name="circle" />
-        </div>
-      )}
-    </FormCard>
+          {isError && <span className="form-alert">{errorMsg}</span>}
+          {isLoading && (
+            <div className="row full-width center">
+              <Loading name="circle" />
+            </div>
+          )}
+        </FormCard>
+      </Wrapper>
+    </>
   );
 }
 
