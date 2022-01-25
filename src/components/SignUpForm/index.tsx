@@ -22,7 +22,7 @@ function SignUpForm({ onSubmit }: Props) {
   } = useForm<User>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="content-form">
       <Input
         {...register('firstName', { required: t('Validations:required') })}
         label={t('SignUp:firstName')}

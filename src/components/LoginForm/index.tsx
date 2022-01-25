@@ -21,7 +21,7 @@ function LoginForm({ onSubmit }: Props) {
   } = useForm<Credential>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="content-form">
       <Input
         {...register('email', {
           required: t('Validations:required'),
