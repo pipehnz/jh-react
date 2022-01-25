@@ -7,7 +7,11 @@ interface Props {
 }
 
 function Wrapper({ children }: Props) {
-  return <div className={styles.wrapper}>{children}</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.wrapper}>{children}</div>
+    </div>
+  );
 }
 
 export default Wrapper;
