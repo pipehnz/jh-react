@@ -27,7 +27,7 @@ describe('', () => {
     });
   });
 
-  describe('a', () => {
+  describe('when some fields are invalid', () => {
     it('should display an error message for invalid email', async () => {
       const submitButton = screen.getByRole('button', { name: /Buttons:signUp/ });
 
