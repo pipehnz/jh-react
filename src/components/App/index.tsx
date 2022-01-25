@@ -1,11 +1,11 @@
 import React from 'react';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import Home from 'screens/Home/index';
-import Login from 'screens/Login';
+import CustomRoute from 'components/CustomRoute';
+import Home from 'screens/Home';
 import SignUp from 'screens/SignUp';
-
+import Login from 'screens/Login';
 import 'scss/application.scss';
 
 const queryClient = new QueryClient();
@@ -15,15 +15,15 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
-          <Route path="/home">
+          <CustomRoute exact path="/home" isPrivate redirectTo="/">
             <Home />
-          </Route>
-          <Route path="/sign_up">
+          </CustomRoute>
+          <CustomRoute exact path="/sign_up" isPrivate={false} redirectTo="/home">
             <SignUp />
-          </Route>
-          <Route path="/">
+          </CustomRoute>
+          <CustomRoute exact path="/" isPrivate={false} redirectTo="/home">
             <Login />
-          </Route>
+          </CustomRoute>
         </Switch>
       </Router>
     </QueryClientProvider>
