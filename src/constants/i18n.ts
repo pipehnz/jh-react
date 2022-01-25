@@ -16,12 +16,14 @@ i18next.addResources('en', 'Validations', {
 
 i18next.addResources('es', 'Buttons', {
   signUp: 'Registrarse',
-  login: 'Iniciar sesión'
+  login: 'Iniciar sesión',
+  logout: 'Cerrar sesión'
 });
 
 i18next.addResources('en', 'Buttons', {
   signUp: 'Sign Up',
-  login: 'Login'
+  login: 'Login',
+  logout: 'Logout'
 });
 
 i18next.addResources('es', 'ErrorRequest', {

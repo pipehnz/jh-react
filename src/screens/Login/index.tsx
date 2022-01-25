@@ -1,24 +1,26 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'react-query';
+import { useHistory } from 'react-router-dom';
 
 import FormCard from 'components/FormCard';
 import LoginForm from 'components/LoginForm';
 import Loading from 'components/Spinner/components/loading';
 import ToggleLanguage from 'components/ToggleLanguage';
 import Wrapper from 'components/Wrapper';
+import LocalStorageService from 'services/LocalStorageService';
 import { signIn } from 'services/UsersService';
 import { Credential } from 'utils/types';
 
 function Login() {
   const { t } = useTranslation();
+  const history = useHistory();
+
   const [errorMsg, setErrorMsg] = useState('');
   const { isLoading, isError, mutate } = useMutation((credential: Credential) => signIn(credential), {
     onSuccess: res => {
-      console.log('access-token', res.headers!['access-token']);
-      console.log('uid', res.headers?.uid);
-      console.log('client', res.headers?.client);
+      LocalStorageService.setValue('access-token', res.headers && res.headers['access-token']);
+      history.push('/home');
     },
     onError: () => {
       setErrorMsg(t('ErrorRequest:notFound'));
