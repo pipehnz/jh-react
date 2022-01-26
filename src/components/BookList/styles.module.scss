@@ -1,0 +1,13 @@
+.book-list {
+  width: 100%;
+  padding: 5px;
+  margin: 0px 200px;
+
+  height: 100%;
+  max-height: 636px;
+  overflow-y: auto;
+}
+
+.book-list > .book-container {
+  margin: 5px;
+}
