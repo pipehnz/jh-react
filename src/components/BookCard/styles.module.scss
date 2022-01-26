@@ -1,0 +1,47 @@
+@import "../../scss/variables/colors";
+
+.book {
+  &-author {
+    color: $gray;
+    line-height: 18px;
+  }
+
+  &-container {  
+    background-color: $white;
+    box-shadow: 4px 4px 10px 0 $black-shadow;
+    height: 100%;
+    margin: 18px;
+    max-height: 300px;
+    max-width: 200px;
+    padding: 28px 28px 23px;
+    position: relative;
+    transition: transform 330ms ease-in-out;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+
+  &-cover, &-cover-img {
+    height: 200px;
+    width: 142px;
+  }
+
+  &-info {
+    margin-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 142px;
+  }
+
+  &-title {
+    color: $black;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+}
