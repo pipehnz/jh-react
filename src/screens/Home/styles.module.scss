@@ -1,4 +1,7 @@
+@import "../../scss/variables/colors";
+
 .container {
+  background-color: $wild-sand;
   display: flex;
   flex-direction: column;
   height: 100%;
