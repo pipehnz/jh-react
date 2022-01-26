@@ -11,6 +11,7 @@ import Wrapper from 'components/Wrapper';
 import LocalStorageService from 'services/LocalStorageService';
 import { signIn } from 'services/UsersService';
 import { Credential } from 'utils/types';
+import api from 'config/api';
 
 function Login() {
   const { t } = useTranslation();
@@ -18,8 +19,16 @@ function Login() {
 
   const [errorMsg, setErrorMsg] = useState('');
   const { isLoading, isError, mutate } = useMutation((credential: Credential) => signIn(credential), {
-    onSuccess: res => {
-      LocalStorageService.setValue('access-token', res.headers && res.headers['access-token']);
+    onSuccess: ({ headers }) => {
+      const token = headers!['access-token'] || '';
+      const client = headers?.client || '';
+      const uid = headers?.uid || '';
+      LocalStorageService.setValue('access-token', token);
+      LocalStorageService.setValue('client', client);
+      LocalStorageService.setValue('uid', uid);
+      api.setHeader('access-token', token);
+      api.setHeader('client', client);
+      api.setHeader('uid', uid);
       history.push('/home');
     },
     onError: () => {
