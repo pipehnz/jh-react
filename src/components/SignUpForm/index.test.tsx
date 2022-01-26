@@ -12,7 +12,6 @@ const onSubmit = jest.fn();
 
 describe('', () => {
   beforeEach(() => {
-    // i18n.init();
     render(<SignUpForm onSubmit={onSubmit} />);
   });
 
