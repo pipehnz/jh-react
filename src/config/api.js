@@ -1,7 +1,7 @@
 import { create } from 'apisauce';
 import { CamelcaseSerializer, SnakecaseSerializer } from 'cerealizr';
 
-const baseURL = 'https://books-training-rails.herokuapp.com/api/v1' || 'http://wolox.com';
+const baseURL = 'https://books-training-rails.herokuapp.com/api/v1';
 
 export const camelCaseSerializer = new CamelcaseSerializer();
 export const snakeCaseSerializer = new SnakecaseSerializer();
