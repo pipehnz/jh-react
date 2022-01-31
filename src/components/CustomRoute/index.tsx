@@ -9,18 +9,13 @@ type Props = {
 } & RouteProps;
 
 function CustomRoute({ children, redirectTo, isPrivate, ...rest }: Props) {
-  const isActive = () => {
-    if ((isLogged() && isPrivate) || (!isLogged() && !isPrivate)) {
-      return true;
-    }
-    return false;
-  };
+  const isActive = (isLogged() && isPrivate) || (!isLogged() && !isPrivate);
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isActive() ? children : <Redirect to={{ pathname: redirectTo, state: { from: location } }} />
+        isActive ? children : <Redirect to={{ pathname: redirectTo, state: { from: location } }} />
       }
     />
   );
